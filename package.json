@@ -4,14 +4,14 @@
   "description": "This repository is a clone of tabnews.com.br. It is part of the course.dev studies.",
   "main": "index.js",
   "scripts": {
-    "dev": "services:up && next dev",
-    "services:up": "docker compose -f infra/compose.yml up -d",
-    "services:stop": "docker compose -f infra/compose.yml stop",
-    "services:down": "docker compose -f infra/compose.yml down",
+    "dev": "yarn services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",

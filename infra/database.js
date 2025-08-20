@@ -1,16 +1,13 @@
 import { Client } from "pg";
-import sslCert from "infra/scripts/sslCert";
 
 async function query(queryObject) {
-  const ssl = await getSSLValues();
-
   const dbEnvironment = {
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
-    ssl,
+    ssl: process.env.NODE_ENV === "development" ? false : true,
   };
 
   const client = new Client(dbEnvironment);
@@ -29,22 +26,6 @@ async function query(queryObject) {
   } finally {
     await client.end();
   }
-}
-
-async function getSSLValues() {
-  if (process.env.NODE_ENV === "development") {
-    return { rejectUnauthorized: false };
-  }
-
-  const cert = await sslCert.handleGetCert();
-
-  if (cert) {
-    return {
-      ca: cert,
-    };
-  }
-
-  return true;
 }
 
 export default {

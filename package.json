@@ -41,5 +41,6 @@
     "concurrently": "^9.2.1",
     "jest": "^30.0.5",
     "prettier": "^3.6.2"
-  }
+  },
+  "packageManager": "yarn@4.9.4"
 }

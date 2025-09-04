@@ -13,6 +13,10 @@ jobs:
         with:
           node-version: "lts/jod"
 
+      - name: Create .env.development
+        run: |
+          echo "${{ secrets.ENV_DEVELOPMENT }}" > .env.development
+
       - name: Enable Corepack
         run: corepack enable
 

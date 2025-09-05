@@ -21,3 +21,6 @@ jobs:
 
       - name: Run tests
         run: yarn test
+
+      - name: Prettier check
+        run: yarn lint:prettier:check

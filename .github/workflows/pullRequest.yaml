@@ -21,3 +21,9 @@ jobs:
 
       - name: Run tests
         run: yarn test
+
+      - name: Prettier check
+        run: yarn lint:prettier:check
+
+      - name: ESLint check
+        run: yarn lint:eslint:check

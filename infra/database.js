@@ -11,7 +11,6 @@ async function query(queryObject) {
     return result;
   } catch (error) {
     console.error(error);
-    console.log("DB ENV: ", dbEnvironment);
 
     throw error;
   } finally {
@@ -36,7 +35,9 @@ async function getNewClient() {
   return client;
 }
 
-export default {
+const database = {
   query,
   getNewClient,
 };
+
+export default database;

@@ -1,0 +1,25 @@
+{
+  "eslint.useFlatConfig": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  // Use flat config (eslint.config.mjs). No override config file.
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  // Format with Prettier on save
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Also apply ESLint auto-fixes on save (non-formatting rules)
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  }
+}

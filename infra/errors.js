@@ -38,7 +38,7 @@ export class ValidationError extends Error {
   constructor({ cause, message, action }) {
     super(message || "A validation error occurred.", { cause });
     this.name = "ValidationError";
-    this.action = action || "Please correct the sended data and try again.";
+    this.action = action || "Please correct the sent data and try again.";
     this.status_code = 400;
   }
 

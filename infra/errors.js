@@ -34,6 +34,24 @@ export class ServiceError extends Error {
   }
 }
 
+export class ValidationError extends Error {
+  constructor({ cause, message, action }) {
+    super(message || "A validation error occurred.", { cause });
+    this.name = "ValidationError";
+    this.action = action || "Please correct the sent data and try again.";
+    this.status_code = 400;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.status_code,
+    };
+  }
+}
+
 export class MethodNotAllowedErrorError extends Error {
   constructor() {
     super("Method not allowed for this endpoint.");

@@ -56,7 +56,7 @@ export class NotFoundError extends Error {
   constructor({ cause, message, action }) {
     super(message || "It was not possible to find this resource.", { cause });
     this.name = "NotFoundError";
-    this.action = action || "Please correct the sended data and try again.";
+    this.action = action || "Please correct the sent data and try again.";
     this.status_code = 404;
   }
 

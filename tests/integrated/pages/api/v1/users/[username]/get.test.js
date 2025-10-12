@@ -10,17 +10,11 @@ beforeAll(async () => {
 describe("GET /api/v1/users/[username]", () => {
   describe("Anonymous user", () => {
     test("With exact case match", async () => {
-      const response1 = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "SameCase",
-          email: "samecase@example.com",
-          password: "password123",
-        }),
+      await orchestrator.createUser({
+        username: "SameCase",
+        email: "samecase@example.com",
+        password: "password123",
       });
-
-      expect(response1.status).toBe(201);
 
       const response2 = await fetch("http://localhost:3000/api/v1/users/SameCase");
 
@@ -32,7 +26,7 @@ describe("GET /api/v1/users/[username]", () => {
         id: response2Body.id,
         username: "SameCase",
         email: "samecase@example.com",
-        password: "password123",
+        password: response2Body.password,
         created_at: response2Body.created_at,
         updated_at: response2Body.updated_at,
       });
@@ -43,17 +37,11 @@ describe("GET /api/v1/users/[username]", () => {
     });
 
     test("With case mismatch", async () => {
-      const response1 = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "DifferentCase",
-          email: "differentcase@example.com",
-          password: "password123",
-        }),
+      await orchestrator.createUser({
+        username: "DifferentCase",
+        email: "differentcase@example.com",
+        password: "password123",
       });
-
-      expect(response1.status).toBe(201);
 
       const response2 = await fetch("http://localhost:3000/api/v1/users/differentcase");
 
@@ -65,7 +53,7 @@ describe("GET /api/v1/users/[username]", () => {
         id: response2Body.id,
         username: "DifferentCase",
         email: "differentcase@example.com",
-        password: "password123",
+        password: response2Body.password,
         created_at: response2Body.created_at,
         updated_at: response2Body.updated_at,
       });

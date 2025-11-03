@@ -2553,6 +2553,7 @@ __metadata:
     next: "npm:^15.5.3"
     next-connect: "npm:^1.0.0"
     node-pg-migrate: "npm:7.9.1"
+    nodemailer: "npm:^7.0.10"
     pg: "npm:^8.16.3"
     prettier: "npm:^3.6.2"
     react: "npm:^19.1.1"
@@ -5650,6 +5651,13 @@ __metadata:
   version: 2.0.21
   resolution: "node-releases@npm:2.0.21"
   checksum: 10c0/0eb94916eeebbda9d51da6a9ea47428a12b2bb0dd94930c949632b0c859356abf53b2e5a2792021f96c5fda4f791a8e195f2375b78ae7dba8d8bc3141baa1469
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^7.0.10":
+  version: 7.0.10
+  resolution: "nodemailer@npm:7.0.10"
+  checksum: 10c0/9bb39bde904397879a6394e5202146167cabc3bd4089c1b0255ce16875e721d1cf132afde25a570fc4cf38f159ba6b6b5411d3b9371775543d38343fbd505101
   languageName: node
   linkType: hard
 
